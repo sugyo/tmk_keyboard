@@ -41,7 +41,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  ,|Fn0|Shift     |
      * '-----------------------------------------------------------'
-     *      |Alt |Gui |         Space         |Gui |Alt |Happy
+     *      |Alt |Fn1 |         Space         |Gui |Alt |Happy
      *      `-------------------------------------------'   Hacking
      */
     [0] = KEYMAP_HHKB_PD_KB02(
@@ -51,11 +51,13 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN0,      RSFT,
              LALT,FN1,           SPC,                RGUI,RALT
     ),
-    /* Mouse mode
+    /* Extended mode
+     * - Mouse mode
+     * - Support RO and JPY keys when using jp keyboard layout.
      * ,-----------------------------------------------------------.
-     * |  `|   |   |   |   |   |   |   |   |   |   |  \|   |  \|   |
+     * |  `|   |   |   |   |   |   |   |   |   |   | RO|   |JPY|<@>|
      * |-----------------------------------------------------------|
-     * |     |   |MwU|   |   |   |   |   |McU|   |   |   |   |Bs   |
+     * |     |   |MwU|   |   |   |   |   |McU|   |   |<[>|<]>|Bs   |
      * |-----------------------------------------------------------|
      * |      |MwL|MwD|MwR|   |   |   |McL|McD|McR|   |   |        |
      * |-----------------------------------------------------------|
@@ -65,15 +67,15 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *      `-------------------------------------------'   Hacking
      */
     [1] = KEYMAP_HHKB_PD_KB02(
-        GRV, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  RO,  NO,  JPY,  NO,
-        NO,  NO,  WH_U,NO,  NO,  NO,  NO,  NO,  MS_U,NO,  NO,  NO,  NO,  BSPC,
-        NO,  WH_L,WH_D,WH_R,NO,  NO,  NO,  MS_L,MS_D,MS_R,NO,  NO,       NO,
-        NO,  ACL0,ACL1,ACL2,NO,  NO,  BTN2,BTN1,NO,  NO,  NO,       NO,
+        GRV, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  RO,  NO,  JPY, LBRC,
+        TRNS,NO,  WH_U,NO,  NO,  NO,  NO,  NO,  MS_U,NO,  NO,  RBRC,BSLS,BSPC,
+        TRNS,WH_L,WH_D,WH_R,NO,  NO,  NO,  MS_L,MS_D,MS_R,NO,  NO,       NO,
+        TRNS,ACL0,ACL1,ACL2,NO,  NO,  BTN2,BTN1,NO,  NO,  NO,       TRNS,
              NO,  NO,            BTN1,               APP, NO 
     ),
 };
 
 const action_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_TAP_KEY(1, KC_SLASH),  // FN0
-    [1] = ACTION_LAYER_TAP_KEY(1, KC_LGUI),  // FN1
+    [0] = ACTION_LAYER_TAP_KEY(1, KC_SLASH),
+    [1] = ACTION_LAYER_TAP_KEY(1, KC_LGUI),
 };
