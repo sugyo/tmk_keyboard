@@ -79,3 +79,8 @@ const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(1, KC_SLASH),
     [1] = ACTION_LAYER_TAP_KEY(1, KC_LGUI),
 };
+
+void hook_early_init(void)
+{
+    _delay_ms(2500);
+}
